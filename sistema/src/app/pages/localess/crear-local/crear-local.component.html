@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<section class="content">
+    <div class="container-fluid">
+      <div class="row m-t-sm">
+        <div class="col-md-15">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="col-md-12 col-sm-12" id="form" style="display:block;">
+                        <div class="panel panel-filled">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-12"><h5 class="m-t-xs">Ingreso de Local</h5></div>
+                                </div>
+                                <form [formGroup]="localForm" (ngSubmit)="agregarLocal()">
+                                    <div class="form-group">
+                                        <label>Departamento</label>
+                                        <input type="text" formControlName="departamento"
+                                            class="form-control" placeholder="Ingresar Nombre">
+                                        <div class="text-danger"
+                                            *ngIf="localForm.get('departamento')?.hasError('required') && 
+                                                    localForm.get('departamento')?.touched">
+                                            <span>El departamento <strong>es obligatorio</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Distrito</label>
+                                        <input type="text" formControlName="distrito" 
+                                            class="form-control" placeholder="Ingresar Distrito">
+                                        <div class="text-danger"
+                                            *ngIf="localForm.get('distrito')?.hasError('required') && 
+                                                    localForm.get('distrito')?.touched">
+                                            <span>El distrito <strong>es obligatoria</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Cantidad</label>
+                                        <input type="number" formControlName="cantidad" 
+                                            class="form-control" placeholder="Ingresar Cantidad">
+                                        <div class="text-danger"
+                                            *ngIf="localForm.get('cantidad')?.hasError('required') && 
+                                                    localForm.get('cantidad')?.touched">
+                                            <span>La cantidad <strong>es obligatoria</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Latitud</label>
+                                        <input type="number" formControlName="latitud" 
+                                            class="form-control" placeholder="Ingresar Latitud">
+                                        <div class="text-danger"
+                                            *ngIf="localForm.get('latitud')?.hasError('required') && 
+                                                    localForm.get('latitud')?.touched">
+                                            <span>La latitud <strong>es obligatorio</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Longitud</label>
+                                        <input type="number" formControlName="longitud" 
+                                            class="form-control" placeholder="Ingresar longitud">
+                                        <div class="text-danger"
+                                            *ngIf="localForm.get('longitud')?.hasError('required') && 
+                                                    localForm.get('longitud')?.touched">
+                                            <span>La longitud <strong>es obligatorio</strong></span>
+                                        </div>
+                                    </div>
+                                    <div  class="col-sm-12 text-right">
+                                        <div class="panel-body buttons-margin">
+                                           <button type="submit" [disabled]="localForm.invalid"  class="btn btn-w-md btn-success">Guardar</button>&nbsp;&nbsp;
+                                           <button class="btn btn-w-md btn-warning" routerLink="/listar-local">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+      </div>
+    </div>
+  </section>
